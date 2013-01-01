@@ -1,0 +1,18 @@
+# Our rest application
+git+git://github.com/armet/django-armet@master#egg=django-armet
+
+# Basic django requirements
+Django==1.4.3
+MySQL-python==1.2.4c1
+
+# Stuff required by armet
+six
+lxml
+python-mimeparse
+python-magic
+python-dateutil
+django-extensions
+django-nose
+coverage
+yanc
+parsedatetime

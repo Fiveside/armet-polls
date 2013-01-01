@@ -1,0 +1,25 @@
+!!!
+%html.no-js
+  %head
+    %meta{charset: 'utf-8'}/
+    %meta{content: 'IE=edge,chrome=1', 'http-equiv': 'X-UA-Compatible'}/
+
+    %title Armet Polls
+
+    %meta{content: '', name: 'description'}/
+    %meta{content: 'width=device-width', name: 'viewport'}/
+
+    %link{href: 'styles/main.css', rel: 'stylesheet'}/
+    -# %link{href: '/favicon.ico', rel: 'icon'}
+
+    %script{src: 'components/modernizr/modernizr.js'}
+
+    - if @lazyload
+      %script{
+        data-main: 'scripts/main.js',
+        src: 'components/requirejs/require.js'}
+
+    - else
+      %script{src: 'scripts/main.js'}
+
+  %body#container.container

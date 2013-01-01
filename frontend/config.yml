@@ -1,0 +1,12 @@
+# REST Server configuration.
+server:
+
+  # Hostname of the REST server. Defaults to '/' and otherwise prepends '//'.
+  host: 'localhost'
+
+  # Port where the REST server is listening to; defaults to 80 and is only used
+  # if a hostname is provided.
+  port: 8000
+
+  # Path on the server where the REST server is mounted.
+  path: 'api'

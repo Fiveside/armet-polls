@@ -29,8 +29,6 @@ require.config
     templates: '../templates'
 
     # jQuery plugins
-    # deserialize, for form deserialization
-    'jquery-deserialize': 'vendor/jquery.deserialize'
     'jquery-iframe-transport': 'vendor/jquery.iframe-transport'
 
     # Core framework powering the single-page application
@@ -50,12 +48,6 @@ require.config
   shim:
     'underscore-string':
       exports: '_.str'
-
-    'jquery-deserialize':
-      exports: '$.fn.deserialize'
-      deps: [
-        'jquery'
-      ]
 
     'jquery-iframe-transport':
       exports: '$.fn.transport'

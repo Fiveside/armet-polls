@@ -69,7 +69,7 @@ module.exports = (grunt) ->
           config: configuration
 
       scripts:
-        files: grunt.file.expandMapping ['**/*.coffee', '!vendor/**'], 'temp/scripts/'
+        files: grunt.file.expandMapping ['**/*.coffee', '!vendor/**'], 'te/scripts/'
           cwd: 'src/scripts/'
 
       templates:
@@ -82,7 +82,7 @@ module.exports = (grunt) ->
       compile:
         options: bare: true
         files: grunt.file.expandMapping '**/*.coffee', 'temp/scripts/'
-          cwd: 'temp/scripts/'
+          cwd: 'src/scripts/'
           rename: (base, path) -> base + path.replace /\.coffee$/, '.js'
 
     # Compass
@@ -121,7 +121,7 @@ module.exports = (grunt) ->
       compile:
         options: target: 'js'
         files: grunt.file.expandMapping '**/*.haml', 'temp/templates/'
-          cwd: 'temp/templates/'
+          cwd: 'src/templates/'
           rename: (base, path) -> base + path.replace /\.haml$/, '.js'
 
       index:
@@ -142,11 +142,11 @@ module.exports = (grunt) ->
     watch:
       coffee:
         files: 'src/scripts/**/*.coffee'
-        tasks: ['copy:scripts', 'template:scripts', 'coffee:compile']
+        tasks: ['copy:scripts', 'coffee:compile']
 
       haml:
         files: 'src/templates/**/*.haml'
-        tasks: ['copy:templates', 'template:templates', 'haml:compile']
+        tasks: ['copy:templates', 'haml:compile']
 
       index:
         files: 'src/index.haml'
@@ -200,17 +200,17 @@ module.exports = (grunt) ->
 
   # Template
   # --------
-  grunt.registerMultiTask 'template', 'Render underscore templates', ->
-    eco = require 'eco'
+  # grunt.registerMultiTask 'template', 'Render underscore templates', ->
+  #   eco = require 'eco'
 
-    # Compile each file; concatenating them into the source if desired.
-    output = for filename in @file.src
-      eco.render grunt.file.read(filename), @options().context
+  #   # Compile each file; concatenating them into the source if desired.
+  #   output = for filename in @file.src
+  #     eco.render grunt.file.read(filename), @options().context
 
-    # If we managed to get anything; let the world know.
-    if output.length > 0
-      grunt.file.write @file.dest, output.join('\n') || ''
-      grunt.log.writeln "File #{@file.dest.cyan} created."
+  #   # If we managed to get anything; let the world know.
+  #   if output.length > 0
+  #     grunt.file.write @file.dest, output.join('\n') || ''
+  #     grunt.log.writeln "File #{@file.dest.cyan} created."
 
   # Tasks
   # =====
@@ -227,8 +227,8 @@ module.exports = (grunt) ->
     'clean:temp'
     'copy:static'
     'copy:scripts'
-    'copy:templates'
-    'template'
+    # 'copy:templates'
+    # 'template'
     'coffee:compile'
     'haml:compile'
     'haml:index'
@@ -245,7 +245,7 @@ module.exports = (grunt) ->
     'copy:static'
     'copy:scripts'
     'copy:templates'
-    'template'
+    # 'template'
     'coffee:compile'
     'compass:build'
     'haml:compile'

@@ -11,8 +11,7 @@
     "grunt-contrib-compass": "0.1.x",
     "grunt-requirejs": "0.3.x",
     "grunt-filesize": "0.0.x",
-    "grunt-wisdom": "0.0.x",
-    "eco": "1.1.x"
+    "grunt-wisdom": "0.0.x"
   },
   "devDependencies": {
     "grunt-contrib-connect": "git://github.com/gruntjs/grunt-contrib-connect.git#cce476636630d73955e6b461a3f5460b01158eba",
